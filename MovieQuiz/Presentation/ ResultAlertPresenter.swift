@@ -15,6 +15,7 @@ class ResultAlertPresenter: ResultAlertPresenterProtocol {
         self.viewController = viewController
     }
     
+    
     func show(alertModel: AlertModel) {
         let alert = UIAlertController(
             title: alertModel.title,
@@ -27,5 +28,6 @@ class ResultAlertPresenter: ResultAlertPresenterProtocol {
         alert.addAction(action)
         
         viewController?.present(alert, animated: true, completion: nil)
+        alert.view.accessibilityIdentifier = "Game Results"
     }
 }
