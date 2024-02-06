@@ -1,10 +1,3 @@
-//
-//  StatisticService.swift
-//  MovieQuiz
-//
-//  Created by Soslan Dzampaev on 22.01.2024.
-//
-
 import Foundation
 
 protocol StatisticService {
@@ -21,7 +14,7 @@ final class StatisticServiceImplementation: StatisticService{
     
     private let userDefaults = UserDefaults.standard
     
-
+    
     var total: Int {
         get {
             userDefaults.integer(forKey: Keys.total.rawValue)
@@ -34,7 +27,7 @@ final class StatisticServiceImplementation: StatisticService{
     var correct: Int{
         get {
             userDefaults.integer(forKey: Keys.correct.rawValue)
-            }
+        }
         set {
             userDefaults.set(newValue, forKey: Keys.correct.rawValue)
         }
@@ -43,7 +36,7 @@ final class StatisticServiceImplementation: StatisticService{
     var gamesCount: Int{
         get {
             userDefaults.integer(forKey: Keys.gamesCount.rawValue)
-            }
+        }
         set {
             userDefaults.set(newValue, forKey: Keys.gamesCount.rawValue)
         }
@@ -53,7 +46,7 @@ final class StatisticServiceImplementation: StatisticService{
         
         get {
             guard let data = userDefaults.data(forKey: Keys.bestGame.rawValue),
-                let record = try? JSONDecoder().decode(GameRecord.self, from: data) else {
+                  let record = try? JSONDecoder().decode(GameRecord.self, from: data) else {
                 return .init(correct: 0, total: 0, date: Date())
             }
             

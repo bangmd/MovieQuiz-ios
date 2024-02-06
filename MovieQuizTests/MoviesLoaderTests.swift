@@ -1,14 +1,7 @@
-//
-//  MoviesLoaderTests.swift
-//  MovieQuizTests
-//
-//  Created by Soslan Dzampaev on 05.02.2024.
-//
-
-import XCTest 
+import XCTest
 @testable import MovieQuiz
 
-class MoviesLoaderTests: XCTestCase {
+final class MoviesLoaderTests: XCTestCase {
     func testSuccessLoading() throws {
         // Given
         let stubNetworkClient = StubNetworkClient(emulateError: false)
@@ -32,7 +25,7 @@ class MoviesLoaderTests: XCTestCase {
     }
     func testFailureLoading() throws {
         // Given
-        let stubNetworkClient = StubNetworkClient(emulateError: true) 
+        let stubNetworkClient = StubNetworkClient(emulateError: true)
         let loader = MoviesLoader(networkClient: stubNetworkClient)
         
         // When
