@@ -1,10 +1,3 @@
-//
-//  AlertPresenter.swift
-//  MovieQuiz
-//
-//  Created by Soslan Dzampaev on 18.01.2024.
-//
-
 import UIKit
 
 class ResultAlertPresenter: ResultAlertPresenterProtocol {
@@ -14,6 +7,7 @@ class ResultAlertPresenter: ResultAlertPresenterProtocol {
     init(viewController: UIViewController? = nil) {
         self.viewController = viewController
     }
+    
     
     func show(alertModel: AlertModel) {
         let alert = UIAlertController(
@@ -27,5 +21,6 @@ class ResultAlertPresenter: ResultAlertPresenterProtocol {
         alert.addAction(action)
         
         viewController?.present(alert, animated: true, completion: nil)
+        alert.view.accessibilityIdentifier = "Game Results"
     }
 }
